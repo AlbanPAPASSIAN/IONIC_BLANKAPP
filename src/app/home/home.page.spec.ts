@@ -9,7 +9,7 @@ describe('HomePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
+      declarations: [HomePage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
@@ -20,5 +20,16 @@ describe('HomePage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.title).toBeUndefined();
+  });
+
+  it('change title', () => {
+    component.title = 'Hello world';
+    expect(component.title).toBe('Hello world');
+  });
+
+  it('update title', () => {
+    component.updateTitle();
+    expect(component.title).toBe('New title');
   });
 });
