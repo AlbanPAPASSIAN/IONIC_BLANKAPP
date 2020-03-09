@@ -23,13 +23,13 @@ describe('HomePage', () => {
     expect(component.title).toBeUndefined();
   });
 
-  it('change title', () => {
-    component.title = 'Hello world';
-    expect(component.title).toBe('Hello world');
-  });
+  // it('change title', () => {
+  //   component.title = 'Hello world';
+  //   expect(component.title).toBe('Hello world');
+  // });
 
-  it('update title', () => {
-    component.updateTitle();
-    expect(component.title).toBe('New title');
-  });
+  // it('update title', () => {
+  //   component.updateTitle();
+  //   expect(component.title).toBe('New title');
+  // });
 });
