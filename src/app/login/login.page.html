@@ -25,7 +25,8 @@
         <ion-input type="password" [(ngModel)]="loginInfo.password" name="password"></ion-input>
       </ion-item>
 
-      <ion-button class="btn-submit" type="submit">Valider</ion-button>
+      <ion-button class="btn-submit" type="submit" [disabled]="!loginInfo.username || loginInfo.password.length < 3">
+        Valider</ion-button>
     </form>
   </div>
 </ion-content>
