@@ -1,32 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Connexion</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Connexion</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <h1>Connexion</h1>
-
-    <form (ngSubmit)="onFormValidate()">
-      <ion-item>
-        <ion-label position="floating">Identifiant</ion-label>
-        <ion-input type="text" [(ngModel)]="loginInfo.username" name="username"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Mot de passe</ion-label>
-        <ion-input type="password" [(ngModel)]="loginInfo.password" name="password"></ion-input>
-      </ion-item>
-
-      <ion-button class="btn-submit" type="submit" [disabled]="!loginInfo.username || loginInfo.password.length < 3">
-        Valider</ion-button>
-    </form>
-  </div>
+    <div>
+        <ion-item>
+            <ion-label position="floating">Identifiant</ion-label>
+            <ion-input [(ngModel)]="id"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" class="color-red">Mot de Passe</ion-label>
+            <ion-input type="password" [(ngModel)]="mdp"></ion-input>
+        </ion-item>
+        <ion-button [disabled]="mdp.length < 3 || id.length < 3" color="primary" (click)="login()">Connexion
+        </ion-button>
+    </div>
+    <span *ngIf="error"> Une erreur est survenue : {{error}} </span>
+    <span *ngIf="loading"> Chargement en cours... </span>
+    <span *ngIf="user && !loading && !error"> Bienvenue {{user.nom}}</span>
 </ion-content>

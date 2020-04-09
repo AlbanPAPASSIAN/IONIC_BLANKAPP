@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
-import { RouterModule } from '@angular/router';
+import {RouterModule} from '@angular/router';
+import {LoginService} from '../services/login.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
       }
     ])
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
+  providers: [LoginService]
 })
-export class LoginPageModule { }
+export class LoginPageModule {}

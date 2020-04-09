@@ -1,33 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {LoginService} from '../services/login.service';
+import User from '../models/User';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+    selector: 'app-login',
+    templateUrl: './login.page.html',
+    styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
 
-  loginInfo: { username: string, password: string } = { username: '', password: '' };
+    id = '';
+    mdp = '';
 
-  constructor(
-    public alertController: AlertController,
-  ) { }
+    user: User;
+    loading = false;
+    error: string;
 
-  ngOnInit() {
-  }
-
-  async onFormValidate() {
-    if (!this.loginInfo.username || !this.loginInfo.password) {
-      const alert = await this.alertController.create({
-        message: 'Veuillez saisir un identifiant et un mot de passe',
-        buttons: ['OK'],
-      });
-
-      await alert.present();
-    } else {
-      console.log(this.loginInfo);
+    constructor(private loginService: LoginService) {
     }
-  }
+
+    ngOnInit() {
+    }
+
+    login() {
+        this.loading = true;
+        this.error = null;
+
+        this.loginService.login(this.id, this.mdp)
+            .subscribe(user => this.user = user,
+                error => {
+                    this.error = error;
+                    this.loading = false;
+                }, () => {
+                    this.loading = false;
+                });
+    }
 
 }

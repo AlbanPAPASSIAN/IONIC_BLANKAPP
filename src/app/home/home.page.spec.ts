@@ -2,9 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -12,13 +9,8 @@ describe('HomePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePage],
-      imports: [IonicModule.forRoot(), CommonModule, FormsModule, RouterModule.forChild([
-        {
-          path: '',
-          component: HomePage
-        }
-      ])]
+      declarations: [ HomePage ],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
@@ -28,15 +20,16 @@ describe('HomePage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.title).toBeUndefined();
   });
 
-  // it('change title', () => {
-  //   component.title = 'Hello world';
-  //   expect(component.title).toBe('Hello world');
-  // });
+  it('change title', () => {
+    component.title = 'Mon Titre';
+    expect(component.title).toBe('Mon Titre');
+  });
 
-  // it('update title', () => {
-  //   component.updateTitle();
-  //   expect(component.title).toBe('New title');
-  // });
+  it('update title', () => {
+    component.updateTitle();
+    expect(component.title).toBe('Mon Nouveau Titre');
+  });
 });

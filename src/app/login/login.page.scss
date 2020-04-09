@@ -1,14 +1,45 @@
-#container {
-  text-align: center;
-  position: absolute;
-  width: 80%;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+:host {
+  display: flex;
+  align-items: center;
 
-  .btn-submit {
-    margin-top: 20px;
+  ion-content {
+    max-width: 400px;
+    display: flex;
+    div{
+      flex: 1;
+      ion-item {
+        margin-bottom: 5px;
+
+        ion-label {
+          color: blue;
+
+          &.color-red {
+            color: red;
+          }
+        }
+      }
+    }
+
   }
 }
+
+/*ion-content {
+  width: 400px;
+
+  > ion-item {
+    margin-bottom: 10px;
+
+    &:first-child {
+      > ion-label {
+        color: red;
+      }
+    }
+
+    &:nth-child(2) {
+      > ion-label {
+        color: blue;
+      }
+    }
+  }
+}*/
+
