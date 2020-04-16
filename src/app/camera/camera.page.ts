@@ -20,7 +20,7 @@ export class CameraPage implements OnInit {
     this.imgData = LocalData.imgData;
   }
 
-  goBack() {
-    window.history.back();
-  }
+  // goBack() {
+  //   window.history.back();
+  // }
 }
