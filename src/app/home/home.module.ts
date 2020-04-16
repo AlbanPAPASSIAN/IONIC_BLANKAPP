@@ -9,6 +9,7 @@ import { LoginService } from '../services/login.service';
 
 import { Camera } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     LoginService,
     Camera,
     Geolocation,
+    LocalNotifications,
   ]
 })
 export class HomePageModule { }

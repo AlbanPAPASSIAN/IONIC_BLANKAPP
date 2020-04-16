@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class HomePage implements OnInit {
     private camera: Camera,
     private alertController: AlertController,
     private geolocation: Geolocation,
+    private localNotifications: LocalNotifications,
   ) {
 
   }
@@ -73,4 +75,11 @@ export class HomePage implements OnInit {
     });
   }
 
+  sendNotification() {
+    this.localNotifications.schedule({
+      id: 1,
+      title: 'Hello world !',
+      text: 'Une super notification',
+    });
+  }
 }
