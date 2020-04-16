@@ -11,7 +11,7 @@
     "prepare:android": "ionic cordova prepare android --prod --no-build",
     "emulate:android": "npm run prepare:android && ionic cordova emulate android --prod --target=Pixel_2_API_29",
     "test": "ng test --code-coverage",
-    "test:local": "ng test --code-coverage --watch --browsers=Chrome",
+    "test:local": "ng test --code-coverage --watch",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

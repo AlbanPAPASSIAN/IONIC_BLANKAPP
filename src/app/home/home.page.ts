@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
       buttons: ['OK']
     });
     // quand l alerte sera masquée
-    alert.onDidDismiss().then(() => console.log('alerte masquée'))
+    alert.onDidDismiss().then(() => console.log('alerte masquée'));
 
     // affichage de l alerte
     await alert.present();
