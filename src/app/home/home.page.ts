@@ -11,6 +11,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class HomePage implements OnInit {
 
+  test: string;
   title: string;
   imgData: string;
   gelocData: { lat: number, lng: number, date: Date }[] = [];
