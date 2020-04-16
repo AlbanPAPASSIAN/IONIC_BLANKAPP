@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="imgData">
+    <img [src]="imgData">
+  </ion-card>
+</ion-content>
