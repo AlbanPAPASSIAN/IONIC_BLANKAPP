@@ -6,7 +6,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { LocalData } from '../services/localdata';
-
+import { CameraPreview, CameraPreviewOptions, CameraPreviewPictureOptions } from '@ionic-native/camera-preview/ngx';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
 
   title = 'Accueil';
   gelocData: { lat: number, lng: number, date: Date }[] = [];
+  picture: string;
 
   constructor(
     private camera: Camera,
@@ -59,7 +60,7 @@ export class HomePage implements OnInit {
 
     this.camera.getPicture(options).then((imageData) => {
       LocalData.imgData = 'data:image/jpeg;base64,' + imageData;
-      this.router.navigate(['/camera']);
+      // this.router.navigate(['/camera']);
     }, (err) => {
       console.log('\n\n: HomePage -> takePicture -> err', err);
     });

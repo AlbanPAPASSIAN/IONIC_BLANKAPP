@@ -10,6 +10,7 @@ import { LoginService } from '../services/login.service';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { CameraPreview } from '@ionic-native/camera-preview/ngx';
 
 @NgModule({
   imports: [

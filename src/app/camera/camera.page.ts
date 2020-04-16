@@ -1,19 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { LocalData } from '../services/localdata';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview/ngx';
 
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.page.html',
   styleUrls: ['./camera.page.scss'],
 })
-export class CameraPage implements OnInit {
+export class CameraPage implements OnInit, OnDestroy {
 
-  title = 'Apercu de la photo';
-  imgData: string;
+  title = 'Camera preview';
+  picture: string;
 
-  constructor() { }
+  constructor(
+    private cameraPreview: CameraPreview,
+  ) { }
 
   ngOnInit() {
-    this.imgData = LocalData.imgData;
+    this.previewPicture();
+  }
+
+  ngOnDestroy() {
+    this.cameraPreview.stopCamera();
+  }
+
+  previewPicture() {
+    const cameraPreviewOpts: CameraPreviewOptions = {
+      x: 0,
+      y: 0,
+      width: window.screen.width,
+      height: window.screen.height,
+      camera: 'rear',
+      tapPhoto: false,
+      previewDrag: true,
+      alpha: 1,
+      toBack: true,
+    };
+
+    // start camera
+    this.cameraPreview.startCamera(cameraPreviewOpts).then(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

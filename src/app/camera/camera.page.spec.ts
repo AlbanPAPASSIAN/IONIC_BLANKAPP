@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { CameraPage } from './camera.page';
 import { RouterTestingModule } from '@angular/router/testing';
+import { CameraPreview } from '@ionic-native/camera-preview/ngx';
 
 describe('CameraPage', () => {
   let component: CameraPage;
@@ -12,6 +13,7 @@ describe('CameraPage', () => {
     TestBed.configureTestingModule({
       declarations: [CameraPage],
       imports: [IonicModule.forRoot(), RouterTestingModule],
+      providers: [CameraPreview],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CameraPage);
@@ -24,6 +26,6 @@ describe('CameraPage', () => {
   });
 
   it('title should be', () => {
-    expect(component.title).toBe('Apercu de la photo');
+    expect(component.title).toBe('Camera preview');
   });
 });
